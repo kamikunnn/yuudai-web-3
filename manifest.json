@@ -1,6 +1,6 @@
 {
-  "name": "MIN-Tube-Pro",
-  "short_name": "MIN-Tube",
+  "name": "yuudai-web-3",
+  "short_name": "yuudai-tube",
   "description": "アプリランチャー — すばやく、快適に",
   "start_url": "/public/min-tube-pro.html",
   "display": "standalone",
