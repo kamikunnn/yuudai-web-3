@@ -12,8 +12,8 @@ const port = process.env.PORT || 3000;
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "ejs");
 
-const API_HEALTH_CHECKER = "https://raw.githubusercontent.com/Minotaur-ZAOU/test/refs/heads/main/min-tube-api.json";
-const TEMP_API_LIST = "https://raw.githubusercontent.com/Minotaur-ZAOU/test/refs/heads/main/min-tube-api.json";
+const API_HEALTH_CHECKER = "https://raw.githubusercontent.com/Minotaur-ZAOU/test/refs/heads/main/yuudai-tube-api.json";
+const TEMP_API_LIST = "https://raw.githubusercontent.com/Minotaur-ZAOU/test/refs/heads/main/yuudai-tube-api.json";
 const RAPID_API_HOST = 'ytstream-download-youtube-videos.p.rapidapi.com';
 const videoCache = new Map();
 const userAgents = [
@@ -476,7 +476,7 @@ const streamEmbedPlaceholder = `<div style="width:100%;height:100%;display:flex;
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>${videoData.videoTitle} - YouTube Pro</title>
+   <title>${videoData.videoTitle} - yuudai-tube-pro</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         :root { --bg-main: #0f0f0f; --bg-secondary: #272727; --bg-hover: #3f3f3f; --text-main: #f1f1f1; --text-sub: #aaaaaa; --yt-red: #ff0000; }
@@ -545,7 +545,7 @@ const streamEmbedPlaceholder = `<div style="width:100%;height:100%;display:flex;
 </head>
 <body>
 <nav class="navbar">
-    <div class="nav-left"><a href="/" class="logo"><i class="fab fa-youtube"></i>YouTube Pro</a></div>
+     <a href="/" class="logo"><i class="fab fa-youtube"></i>yuudai-tube-pro</a>
     <div class="nav-center">
         <form class="search-bar" action="/nothing/search">
             <input type="text" name="q" id="searchInput" placeholder="検索" autocomplete="off">
@@ -1364,11 +1364,11 @@ app.get('/ai-fetch/:videoId', async (req, res) => {
     }
 });
 
-app.get("/youtube-pro", (req, res) => {
-  res.sendFile(path.join(__dirname, "public", "min-tube-pro.html"));
+app.get("/yuudai-tube-pro", (req, res) => {
+  res.sendFile(path.join(__dirname, "public", "yuudai-web-3.html"));
 });
 
-app.get("/min-img.png", (req, res) => {
+const filePath = path.join(__dirname, "img", "yuudai-web-3.png");
   const filePath = path.join(__dirname, "img", "min-tube-pro.png");
   res.sendFile(filePath);
 });
@@ -1531,7 +1531,7 @@ app.get("/channel/:channelName", (req, res) => {
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>${channelName} - MIN-Tube-Pro</title>
+  <title>${channelName} - yuudai-web-3</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
   <style>
@@ -1767,7 +1767,7 @@ app.get("/channel/:channelName", (req, res) => {
       <div class="nav-logo-icon">
         <svg viewBox="0 0 68 48"><path d="M66.52 7.74c-.78-2.93-2.49-5.41-5.42-6.19C55.79.13 34 0 34 0S12.21.13 6.9 1.55c-2.93.78-4.63 3.26-5.42 6.19C.06 13.05 0 24 0 24s.06 10.95 1.48 16.26c.78 2.93 2.49 5.41 5.42 6.19C12.21 47.87 34 48 34 48s21.79-.13 27.1-1.55c2.93-.78 4.64-3.26 5.42-6.19C67.94 34.95 68 24 68 24s-.06-10.95-1.48-16.26z" fill="#FF0000"/><path d="M45 24 27 14v20" fill="white"/></svg>
       </div>
-      <span class="nav-logo-text">YouTube</span><span class="nav-logo-sub">Pro</span>
+      <span class="nav-logo-text">yuudai-tube</span><span class="nav-logo-sub">pro</span>
     </a>
   </div>
   <div class="nav-center">
@@ -1981,7 +1981,7 @@ app.get('/stream/inv/:videoId', async (req, res) => {
     const randomUA = userAgents[Math.floor(Math.random() * userAgents.length)];
     
     try {
-        const configRes = await fetch("https://raw.githubusercontent.com/mino-hobby-pro/min-tube-pro-local-txt/refs/heads/main/inv-check.txt");
+        const configRes = await fetch("https://raw.githubusercontent.com/kamikunnn/yuudai-web-3-local-txt/refs/heads/main/inv-check.txt");
         const extraParams = (await configRes.text()).trim(); 
         
         const targetUrl = `https://yt-comp5.chocolatemoo53.com/companion/latest_version?id=${videoId}${extraParams}`;
